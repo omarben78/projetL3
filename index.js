@@ -15,36 +15,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Accès à la page racine
 app.get('/', function(req, res) {
-    res.render("tableau.ejs");
+    res.render("index.ejs");
 
-});
-
-// Accès à la page form.ejs
-app.get('/form', function(req, res) {
-    res.render("form.ejs");
-});
-
-// Envoie du formulaire
-app.post('/action', function(req, res) {
-    res.setHeader('Content-Type', 'text/plain');
-    //res.render("form.ejs");
-
-    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
-        if (err) throw err;
-        var dbo = db.db("fac");
-
-        var myobj = { prenom: req.body.nom, nom: req.body.prenom, email:req.body.email};
-
-        dbo.collection("lpi").insertOne(myobj, function(err, res) {
-            if (err) throw err;
-            console.log("1 document inserted");
-            db.close();
-        });
-        res.redirect('/form');
-    });
-
-
-    //res.send(req.body.nom + " " + req.body.prenom + " " + req.body.email);
 });
 
 app.use(function(req, res){
