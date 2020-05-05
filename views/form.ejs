@@ -1,26 +1,42 @@
 <html>
 <head>
     <title>Prendre un rendez-vous</title>
+    <!-- css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- css -->
+
+    <!-- javascript -->
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <!-- javascript -->
 </head>
 <body style="background-color: lightgrey;">
-<a href="/" style="text-decoration: none; border: solid 1px lightgray; background-color: lightgray; color: black; text-align: left;">< Accueil</a>
+<a href="/" class="btn btn-outline-dark" style="border-radius: 20px;">< Accueil</a>
 <center>
-    <h1>Ajout d'un nouveau participant</h1>
+    <h2 style="color: darkblue; text-decoration: underline dotted;">Création d'un nouveau rendez-vous</h2>
+    <hr width="500">
     <form action="/action" method="post">
-        <div>
-            <label for="nom">Titre : </label>
-            <input type="text" id="nom" name="nom"/>
+        <div class="input-group mb-3" style="width: 30%;">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Titre :</span>
+            </div>
+            <input type="text" id="titre" name="titre" class="form-control">
         </div>
-        <div>
-            <label for="prenom">Prénom : </label>
-            <input type="text" id="prenom" name="prenom"/>
+        <div class="input-group mb-3" style="width: 30%;">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Date :</span>
+            </div>
+            <input type="date" id="date" name="date" class="form-control">
         </div>
-        <div>
-            <label for="email">Email : </label>
-            <input type="text" id="email" name="email"/>
+        <div class="input-group" style="width: 30%;">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Commentaire :</span>
+            </div>
+            <textarea class="form-control" id="commentaire" name="commentaire"></textarea>
         </div>
-        <input type="submit" value="Envoyer"/>
+        <p></p>
+        <input type="submit" class="btn btn-outline-success" style="border-radius: 20px;" value="Envoyer" />
     </form>
+    <hr width="500">
 </center>
 </body>
 <html>
