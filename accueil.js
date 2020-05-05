@@ -16,9 +16,14 @@ app.use(express.urlencoded({ extended: true }));
 // Accès à la page racine
 app.get('/', function(req, res) {
     res.render("index.ejs");
-
 });
 
+// Accès à notre formulaire
+app.get('/form', function(req, res) {
+    res.render("form.ejs");
+});
+
+// Affichage de "page introuvable" si la page n'existe pas
 app.use(function(req, res){
     res.setHeader('Content-Type', 'text/plain');
     res.status(404).send('Page introuvable !');
