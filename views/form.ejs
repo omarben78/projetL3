@@ -10,22 +10,34 @@
     <!-- javascript -->
 </head>
 <body style="background-color: lightgrey;">
-<a href="/" class="btn btn-outline-dark" style="border-radius: 20px;">< Accueil</a>
+<a href="/" class="btn btn-outline-dark" style="border-radius: 20px;">< Retour</a>
 <center>
     <h2 style="color: darkblue; text-decoration: underline dotted;">Création d'un nouveau rendez-vous</h2>
     <hr width="500">
     <form action="/action" method="post">
         <div class="input-group mb-3" style="width: 30%;">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Titre :</span>
+                <span class="input-group-text" id="basic-addon1">Nom du participant :</span>
             </div>
-            <input type="text" id="titre" name="titre" class="form-control">
+            <input type="text" id="nom" name="nom" class="form-control">
         </div>
         <div class="input-group mb-3" style="width: 30%;">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">Date :</span>
             </div>
             <input type="date" id="date" name="date" class="form-control">
+        </div>
+        <div class="input-group mb-3" style="width: 30%;">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Date 2 :</span>
+            </div>
+            <input type="date" id="date2" name="date2" class="form-control">
+        </div>
+        <div class="input-group mb-3" style="width: 30%;">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Date 3 :</span>
+            </div>
+            <input type="date" id="date3" name="date3" class="form-control">
         </div>
         <div class="input-group" style="width: 30%;">
             <div class="input-group-prepend">
