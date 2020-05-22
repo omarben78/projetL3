@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>Sondages</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- css -->
+
+    <!-- javascript -->
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <!-- javascript -->
+</head>
+<body style="background-color: lightgrey;">
+<a href="/" class="btn btn-outline-dark" style="border-radius: 20px;">< Retour</a>
+<center>
+<h2 style="text-decoration: underline dotted;">Sondage n° <%= id %> </h2>
+<hr width="200">
+    <h5 style="border: solid 1px darkblue; width: 20%; color: darkblue;">Valider son année ?</h5>
+    <form action="">
+        <div>
+            <input type="radio" id="oui" name="choix" value="oui">
+            <label for="oui">oui</label>
+        </div>
+
+        <div>
+            <input type="radio" id="non" name="choix" value="non">
+            <label for="non">non</label>
+        </div>
+
+        <div>
+            <input type="radio" id="peutetre" name="choix" value="peut-être">
+            <label for="peutetre">peut-être</label>
+        </div>
+        <input type="submit" class="btn btn-outline-success" value="Valider mon choix" style="border-radius: 20px;">
+    </form>
+<hr width="200">
+</center>
+</body>
+<html>

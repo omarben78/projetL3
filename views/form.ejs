@@ -17,28 +17,25 @@
     <form action="/action" method="post">
         <div class="input-group mb-3" style="width: 30%;">
             <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Sondage :</span>
+            </div>
+            <input type="text" id="sondage" name="sondage" class="form-control">
+        </div>
+        <div class="input-group mb-3" style="width: 30%;">
+            <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">Nom du participant :</span>
             </div>
             <input type="text" id="nom" name="nom" class="form-control">
         </div>
         <div class="input-group mb-3" style="width: 30%;">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Date :</span>
+                <span class="input-group-text" id="basic-addon1"><input type="button" value="+" id="increment" class="btn btn-outline-primary" style="border-radius: 20px; font-size: 10px;"/>Date : </span>
             </div>
-            <input type="date" id="date" name="date" class="form-control">
+            <input type="date" id="date" name="date" class="form-control" style="width: 15%;">
+            De:<input type="time" id="begintime" name="begintime" class="form-control">
+            A:<input type="time" id="endtime" name="endtime" class="form-control">
         </div>
-        <div class="input-group mb-3" style="width: 30%;">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Date 2 :</span>
-            </div>
-            <input type="date" id="date2" name="date2" class="form-control">
-        </div>
-        <div class="input-group mb-3" style="width: 30%;">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Date 3 :</span>
-            </div>
-            <input type="date" id="date3" name="date3" class="form-control">
-        </div>
+        <p id="nbrdates"></p>
         <div class="input-group" style="width: 30%;">
             <div class="input-group-prepend">
                 <span class="input-group-text">Commentaire :</span>
@@ -50,5 +47,14 @@
     </form>
     <hr width="500">
 </center>
+<script>
+    var count = 0;
+    $('#increment').click(function (e) {
+        e.preventDefault();
+        count++;
+        $('#nbrdates').append($('<div class="input-group mb-3" style="width: 30%;"><div class="input-group-prepend"><span class="input-group-text" id="basic-addon1">Date' + count +':</span></div><input type="date" id="date'+count+'" name="date'+count+'" class="form-control" style="width: 15%;">De:<input type="time" id="begintime'+count+'" name="begintime'+count+'" class="form-control">A:<input type="time" id="endtime'+count+'" name="endtime'+count+'" class="form-control"></div>'));
+        console.log(count);
+    });
+</script>
 </body>
 <html>

@@ -12,14 +12,49 @@
     <!-- javascript -->
 </head>
 <body style="background-color: lightgrey;">
-<center>
-<h2 style="text-decoration: underline; color: darkblue;">LP-RDV : Plannificateur de Rendez-vous</h2>
-<hr width="600">
-<p style="color: darkblue;">Cet outil vous permet de planifiez des Rendez-vous et de répondre à des sondages.</p>
-<hr width="600">
 
-    <a href="participants" class="btn btn-outline-primary" style="border-radius: 20px;">Voir les participants</a>
-    <a href="form" class="btn btn-outline-primary" style="border-radius: 20px;">Plannifier un nouveau rendez-vous</a>
+<h2 style="text-decoration: underline; color: darkblue; text-align: center;">LP-RDV : Plannificateur de Rendez-vous</h2>
+<hr width="600">
+<p style="color: darkblue; text-align: center;">Cet outil vous permet de planifiez des Rendez-vous et de répondre à des sondages.</p>
+<p>Pour commencer, veuillez vous inscrire</p>
+<a href="inscription">Créer mon compte</a>
+<hr width="600">
+<a href="form" class="btn btn-outline-dark" style="border-radius: 20px; float: right;">+ Créer un nouveau sondage</a>
+<center>
+    <a href="sondages/1" class="btn btn-outline-dark" style="border-radius: 20px; float: left;">Répondres aux sondages ></a>
+    <button class="btn btn-outline-primary" id="participants" style="border-radius: 20px;">Voir les participants</button>
+
+    <p></p>
+    <table class="table" id="tableau" style="width: 50%;">
+        <thead class="thead-light">
+        <tr>
+            <th>Participants</th>
+            <th>02/06/2020</th>
+            <th>04/06/2020</th>
+            <th>05/06/2020</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>Omar</th>
+            <td contenteditable="true">X</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+        </tr>
+        <tr>
+            <th>Sophiane</th>
+            <td contenteditable="true"></td>
+            <td contenteditable="true">X</td>
+            <td contenteditable="true"></td>
+        </tr>
+        </tbody>
+    </table>
 </center>
+<script>
+    $('#tableau').hide();
+    $('#participants').click(function () {
+        $('#tableau').toggle();
+    })
+</script>
 </body>
 <html>

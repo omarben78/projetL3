@@ -23,13 +23,29 @@ app.get('/form', function(req, res) {
     res.render("form.ejs");
 });
 
+// Accès à la liste des participants
 app.get('/participants', function(req, res) {
     res.render("participants.ejs");
 });
 
+// Accès à la liste des sondages
 app.get('/sondages/:id', function(req, res) {
-    res.render("form.ejs");
-    var objet = { id: req.params.id}
+    //res.render("form.ejs");
+    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("projet");
+        var myobj = { id: req.params.id};
+
+        dbo.collection("rdv").find({}).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            res.render("sondages.ejs", myobj);
+            //res.send(myobj);
+            db.close();
+        });
+
+    });
+
 });
 
 // Envoie du formulaire
@@ -41,7 +57,7 @@ app.post('/action', function(req, res) {
         if (err) throw err;
         var dbo = db.db("projet");
 
-        var myobj = { titre: req.body.titre, date: req.body.date, commentaire: req.body.commentaire};
+        var myobj = { sondage: req.body.sondage, nom: req.body.nom, date: req.body.date, begintime: req.body.begintime, endtime: req.body.endtime, commentaire: req.body.commentaire};
 
         dbo.collection("rdv").insertOne(myobj, function(err, res) {
             if (err) throw err;
