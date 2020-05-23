@@ -23,6 +23,11 @@ app.get('/form', function(req, res) {
     res.render("form.ejs");
 });
 
+// Accès à notre formulaire
+app.get('/inscription', function(req, res) {
+    res.render("inscription.ejs");
+});
+
 // Accès à la liste des participants
 app.get('/participants', function(req, res) {
     res.render("participants.ejs");
