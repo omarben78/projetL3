@@ -1,8 +1,6 @@
 <html>
 <head>
-    <title>Page d'accueil</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prendre un rendez-vous</title>
     <!-- css -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- css -->
@@ -12,48 +10,35 @@
     <!-- javascript -->
 </head>
 <body style="background-color: lightgrey;">
-
-<h2 style="text-decoration: underline; color: darkblue; text-align: center;">LP-RDV : Plannificateur de Rendez-vous</h2>
-<hr width="600">
-<p style="color: darkblue; text-align: center;">Cet outil vous permet de planifiez des Rendez-vous et de répondre à des sondages.</p>
-<p style="color: darkblue; text-align: center;">Pour commencer, veuillez vous inscrire</p>
-<hr width="600">
-<a href="form" class="btn btn-outline-dark" style="border-radius: 20px; float: right;">+ Créer un nouveau sondage</a>
+<a href="inscription" class="btn btn-dark" style="border-radius: 20px; float: right;"> + Inscription </a>
 <center>
-    <a href="inscription" class="btn btn-outline-dark" style="border-radius: 20px;">Créer mon compte</a>
-    <a href="sondages/1" class="btn btn-outline-dark" style="border-radius: 20px; float: left;">Répondres aux sondages ></a>
-    <button class="btn btn-outline-primary" id="participants" style="border-radius: 20px;">Voir les participants</button>
-    <p></p>
-    <table class="table" id="tableau" style="width: 50%;">
-        <thead class="thead-light">
-        <tr>
-            <th>Participants</th>
-            <th>02/06/2020</th>
-            <th>04/06/2020</th>
-            <th>05/06/2020</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <th>Omar</th>
-            <td contenteditable="true">X</td>
-            <td contenteditable="true"></td>
-            <td contenteditable="true"></td>
-        </tr>
-        <tr>
-            <th>Sophiane</th>
-            <td contenteditable="true"></td>
-            <td contenteditable="true">X</td>
-            <td contenteditable="true"></td>
-        </tr>
-        </tbody>
-    </table>
+    <h2 style="text-decoration: underline; color: darkblue; text-align: center;">LP-RDV : Plannificateur de Rendez-vous</h2>
+<hr width="1100">
+<p style="color: darkblue; text-align: center;">Bienvenue sur la nouvelle interface de plannification de rendez-vous. Cet outil vous permet de planifiez des rendez-vous et de répondre à des sondages.</p>
+<p style="color: darkblue; text-align: center;">Pour commencer à utiliser l'interface, veuillez vous identifiez s'il vous plaît --></p>
+<hr width="1100">
+    <form action="/profil" method="post" style="border: solid 1px darkblue; width: 80%;">
+        <h4 style="color: darkblue; text-decoration: underline dotted;">Connexion à votre compte</h4>
+        <p></p>
+        <div class="input-group mb-3" style="width: 30%;">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Identifiant :</span>
+            </div>
+            <input type="text" id="identifiant" name="identifiant" class="form-control" required>
+        </div>
+
+        <div class="input-group mb-3" style="width: 30%;">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Mot de passe :</span>
+            </div>
+            <input type="password" id="motdepasse" name="motdepasse" class="form-control" required>
+        </div>
+
+        <p></p>
+        <input type="submit" class="btn btn-primary" style="border-radius: 20px;" value="Connexion" />
+        <p></p>
+    </form>
+    <hr width="500">
 </center>
-<script>
-    $('#tableau').hide();
-    $('#participants').click(function () {
-        $('#tableau').toggle();
-    })
-</script>
 </body>
 <html>

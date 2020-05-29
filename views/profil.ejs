@@ -1,0 +1,78 @@
+<html>
+<head>
+    <title>Page d'accueil</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- css -->
+
+    <!-- javascript -->
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <!-- javascript -->
+</head>
+<body style="background-color: lightgrey;">
+    
+
+<a href="/" style="color: red; float: right;">Déconnexion</a>
+
+<h2 style="text-decoration: underline; color: darkblue; text-align: center;">Bienvenue <%= identifiant %></h2>
+<hr width="600">
+<p style="color: darkblue; text-align: center;">Voici vos rendez-vous actuellement enregistrer</p>
+<hr width="600">
+<a href="form" class="btn btn-outline-dark" style="border-radius: 20px; float: right;">+ Créer un nouveau sondage</a>
+<center>
+    <!-- <a href="inscription" class="btn btn-outline-primary" style="border-radius: 20px;">Créer mon compte</a> -->
+    <a href="sondages/1" class="btn btn-outline-dark" style="border-radius: 20px; float: left;">Répondres aux sondages ></a>
+    <p></p>
+    <table class="table" id="tableau" style="width: 50%;">
+        <thead class="thead-light">
+        <tr>
+            <th>Participants</th>
+            <th>02/06/2020</th>
+            <th>04/06/2020</th>
+            <th>05/06/2020</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>Omar</th>
+            <td contenteditable="true">X</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+        </tr>
+        <tr>
+            <th>Sophiane</th>
+            <td contenteditable="true"></td>
+            <td contenteditable="true">X</td>
+            <td contenteditable="true"></td>
+        </tr>
+        <tr>
+            <th>Jeremy</th>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true">X</td>
+        </tr>
+        <tr>
+            <th>Marwen</th>
+            <td contenteditable="true"></td>
+            <td contenteditable="true">X</td>
+            <td contenteditable="true"></td>
+        </tr>
+        <tr>
+            <th>Yazid</th>
+            <td contenteditable="true">X</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+        </tr>
+        <tr>
+            <th>Alexandre</th>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true">X</td>
+        </tr>
+        </tbody>
+    </table>
+</center>
+</body>
+<html>

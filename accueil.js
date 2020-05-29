@@ -13,9 +13,19 @@ var server = http.createServer(function(req, res) {
 var app = express();
 app.use(express.urlencoded({ extended: true }));
 
-// Accès à la page racine
+// Accès à la page connexion
 app.get('/', function(req, res) {
     res.render("index.ejs");
+});
+
+app.post('/profil', function(req, res) {
+    //var objet = {user: {username: 'toto', mdp: 'toto95'}};
+    res.render("profil.ejs", {identifiant: req.body.identifiant});
+});
+
+// Accès à la page profil
+app.get('/profil', function(req, res) {
+    res.render("profil.ejs");
 });
 
 // Accès à notre formulaire
@@ -51,6 +61,32 @@ app.get('/sondages/:id', function(req, res) {
 
     });
 
+});
+
+// Accès à la page reponse
+app.get('/reponse', function(req, res) {
+    res.render("reponse.ejs");
+});
+
+// Envoie du formulaire
+app.post('/reponse', function(req, res) {
+    res.setHeader('Content-Type', 'text/plain');
+    //res.render("form.ejs");
+
+    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("projet");
+
+        var myobj = { oui: req.body.oui, non: req.body.non, peutetre: req.body.peutetre};
+
+        dbo.collection("reponse").insertOne(myobj, function(err, res) {
+            if (err) throw err;
+            console.log("1 reponse a ete ajoutes");
+            db.close();
+        });
+        res.redirect('/reponse');
+    });
+    //res.send(req.body.nom + " " + req.body.prenom + " " + req.body.email);
 });
 
 // Envoie du formulaire
