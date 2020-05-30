@@ -10,7 +10,7 @@
     <!-- javascript -->
 </head>
 <body style="background-color: lightgrey;">
-<a href="/" class="btn btn-outline-dark" style="border-radius: 20px;">< Retour</a>
+<!-- <a href="/profil" class="btn btn-outline-dark" style="border-radius: 20px;">< Retour</a> -->
 <center>
     <h2 style="color: darkblue; text-decoration: underline dotted;">Création d'un nouveau rendez-vous</h2>
     <hr width="500">
@@ -19,31 +19,31 @@
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">Sondage :</span>
             </div>
-            <input type="text" id="sondage" name="sondage" class="form-control">
+            <input type="text" id="sondage" name="sondage" class="form-control" required>
         </div>
         <div class="input-group mb-3" style="width: 30%;">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">Nom du participant :</span>
             </div>
-            <input type="text" id="nom" name="nom" class="form-control">
+            <input type="text" id="nom" name="nom" class="form-control" required>
         </div>
         <div class="input-group mb-3" style="width: 30%;">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1"><input type="button" value="+" id="increment" class="btn btn-outline-primary" style="border-radius: 20px; font-size: 10px;"/>Date : </span>
+                <span class="input-group-text" id="basic-addon1"><input type="button" value="+" id="increment" class="btn btn-primary" style="border-radius: 20px; font-size: 10px;"/>Date : </span>
             </div>
-            <input type="date" id="date" name="date" class="form-control" style="width: 15%;">
-            De:<input type="time" id="begintime" name="begintime" class="form-control">
-            A:<input type="time" id="endtime" name="endtime" class="form-control">
+            <input type="date" id="date" name="date" class="form-control" required style="width: 15%;">
+            De:<input type="time" id="begintime" name="begintime" class="form-control" required>
+            A:<input type="time" id="endtime" name="endtime" class="form-control" required>
         </div>
         <p id="nbrdates"></p>
         <div class="input-group" style="width: 30%;">
             <div class="input-group-prepend">
                 <span class="input-group-text">Commentaire :</span>
             </div>
-            <textarea class="form-control" id="commentaire" name="commentaire"></textarea>
+            <textarea class="form-control" required id="commentaire" name="commentaire"></textarea>
         </div>
         <p></p>
-        <input type="submit" class="btn btn-outline-success" style="border-radius: 20px;" value="Envoyer" />
+        <input type="submit" class="btn btn-success" style="border-radius: 20px;" value="Envoyer" />
     </form>
     <hr width="500">
 </center>
@@ -52,7 +52,7 @@
     $('#increment').click(function (e) {
         e.preventDefault();
         count++;
-        $('#nbrdates').append($('<div class="input-group mb-3" style="width: 30%;"><div class="input-group-prepend"><span class="input-group-text" id="basic-addon1">Date' + count +':</span></div><input type="date" id="date'+count+'" name="date'+count+'" class="form-control" style="width: 15%;">De:<input type="time" id="begintime'+count+'" name="begintime'+count+'" class="form-control">A:<input type="time" id="endtime'+count+'" name="endtime'+count+'" class="form-control"></div>'));
+        $('#nbrdates').append($('<div class="input-group mb-3" style="width: 30%;"><div class="input-group-prepend"><span class="input-group-text" id="basic-addon1">Date' + count +':</span></div><input type="date" id="date'+count+'" name="date'+count+'" class="form-control" required style="width: 15%;">De:<input type="time" id="begintime'+count+'" name="begintime'+count+'" class="form-control" required>A:<input type="time" id="endtime'+count+'" name="endtime'+count+'" class="form-control" required></div>'));
         console.log(count);
     });
 </script>

@@ -18,14 +18,30 @@ app.get('/', function(req, res) {
     res.render("index.ejs");
 });
 
-app.post('/profil', function(req, res) {
-    //var objet = {user: {username: 'toto', mdp: 'toto95'}};
-    res.render("profil.ejs", {identifiant: req.body.identifiant});
-});
-
 // Accès à la page profil
 app.get('/profil', function(req, res) {
     res.render("profil.ejs");
+});
+
+// Envoie du nom de l'utilisateur
+app.post('/profil', function(req, res) {
+    //var objet = {user: {username: 'toto', mdp: 'toto95'}};
+    res.render("profil.ejs", {identifiant: req.body.identifiant});
+
+    /*MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("projet");
+
+        var myobj = {identifiant: req.body.identifiant};
+
+        dbo.collection("login").find({}).toArray(function(err, result) {
+            if (err) throw err;
+            console.log("Utilisateur connectee");
+            db.close();
+        });
+        res.redirect('/profil');
+    });*/
+
 });
 
 // Accès à notre formulaire
@@ -77,7 +93,7 @@ app.post('/reponse', function(req, res) {
         if (err) throw err;
         var dbo = db.db("projet");
 
-        var myobj = { oui: req.body.oui, non: req.body.non, peutetre: req.body.peutetre};
+        var myobj = {choix: req.body.choix};
 
         dbo.collection("reponse").insertOne(myobj, function(err, res) {
             if (err) throw err;
@@ -106,6 +122,27 @@ app.post('/action', function(req, res) {
             db.close();
         });
         res.redirect('/form');
+    });
+    //res.send(req.body.nom + " " + req.body.prenom + " " + req.body.email);
+});
+
+// Envoie du formulaire
+app.post('/inscrit', function(req, res) {
+    res.setHeader('Content-Type', 'text/plain');
+    //res.render("form.ejs");
+
+    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("projet");
+
+        var myobj = { identifiant: req.body.identifiant, email: req.body.email, mdp: req.body.mdp};
+
+        dbo.collection("login").insertOne(myobj, function(err, res) {
+            if (err) throw err;
+            console.log("1 compte a ete creer");
+            db.close();
+        });
+        res.redirect('/inscription');
     });
     //res.send(req.body.nom + " " + req.body.prenom + " " + req.body.email);
 });

@@ -14,65 +14,61 @@
 <body style="background-color: lightgrey;">
     
 
-<a href="/" style="color: red; float: right;">Déconnexion</a>
+<a onclick="deconnexion()" class="btn btn-danger" style="float: right; border-radius: 20px; color: white;">Déconnexion</a>
 
-<h2 style="text-decoration: underline; color: darkblue; text-align: center;">Bienvenue <%= identifiant %></h2>
+<h2 style="text-decoration: underline dotted; color: darkblue; text-align: center;">Bienvenue <%= identifiant %></h2>
 <hr width="600">
-<p style="color: darkblue; text-align: center;">Voici vos rendez-vous actuellement enregistrer</p>
+<p style="color: darkblue; text-align: center;">Affichage de tous vos rendez-vous prévu</p>
 <hr width="600">
-<a href="form" class="btn btn-outline-dark" style="border-radius: 20px; float: right;">+ Créer un nouveau sondage</a>
+<a href="form" class="btn btn-dark" style="border-radius: 20px; float: right;">+ Créer un nouveau sondage</a>
 <center>
     <!-- <a href="inscription" class="btn btn-outline-primary" style="border-radius: 20px;">Créer mon compte</a> -->
-    <a href="sondages/1" class="btn btn-outline-dark" style="border-radius: 20px; float: left;">Répondres aux sondages ></a>
+    <a href="sondages/1" class="btn btn-dark" style="border-radius: 20px; float: left;">Répondres aux sondages ></a>
     <p></p>
+    <!-- <input type="button" value="+" id="increment" class="btn btn-outline-primary" style="border-radius: 20px; font-size: 10px;"/> -->
     <table class="table" id="tableau" style="width: 50%;">
         <thead class="thead-light">
         <tr>
             <th>Participants</th>
+            <th>01/06/2020</th>
             <th>02/06/2020</th>
-            <th>04/06/2020</th>
-            <th>05/06/2020</th>
+            <th>03/06/2020</th>
         </tr>
         </thead>
-        <tbody>
+
         <tr>
-            <th>Omar</th>
+            <th><%= identifiant %>(vous)</th>
             <td contenteditable="true">X</td>
             <td contenteditable="true"></td>
             <td contenteditable="true"></td>
         </tr>
-        <tr>
-            <th>Sophiane</th>
-            <td contenteditable="true"></td>
-            <td contenteditable="true">X</td>
-            <td contenteditable="true"></td>
-        </tr>
+
         <tr>
             <th>Jeremy</th>
             <td contenteditable="true"></td>
-            <td contenteditable="true"></td>
-            <td contenteditable="true">X</td>
-        </tr>
-        <tr>
-            <th>Marwen</th>
-            <td contenteditable="true"></td>
             <td contenteditable="true">X</td>
             <td contenteditable="true"></td>
         </tr>
-        <tr>
-            <th>Yazid</th>
-            <td contenteditable="true">X</td>
-            <td contenteditable="true"></td>
-            <td contenteditable="true"></td>
-        </tr>
-        <tr>
-            <th>Alexandre</th>
-            <td contenteditable="true"></td>
-            <td contenteditable="true"></td>
-            <td contenteditable="true">X</td>
-        </tr>
-        </tbody>
     </table>
+    <!-- <p id="nbrdates"></p> -->
 </center>
+
+<script>
+    function deconnexion() {
+  var r = confirm("êtes-vous sûr de vouloir vous déconnecter ?");
+  if (r == true) {
+    window.location = "/";
+  } else {
+    return false;
+  }
+}
+    /*var count = 0;
+    $('#increment').click(function (e) {
+        e.preventDefault();
+        count++;
+        $('#nbrdates').append($('<table class="table" id="tableau" style="width: 50%;"><tr><th contenteditable="true">(Entrer nom utilisateur)</th><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr></table>'));
+        console.log(count);
+    });*/
+</script>
 </body>
 <html>

@@ -12,27 +12,27 @@
     <!-- javascript -->
 </head>
 <body style="background-color: lightgrey;">
-<a href="/" class="btn btn-outline-dark" style="border-radius: 20px;">< Retour</a>
+<!-- <a href="/" class="btn btn-outline-dark" style="border-radius: 20px;">< Retour</a> -->
 <center>
 <h2 style="text-decoration: underline dotted;">Sondage n° <%= id %> </h2>
 <hr width="200">
-    <h5 style="border: solid 1px darkblue; width: 20%; color: darkblue;">Valider son année ?</h5>
+    <h5 style="border: solid 1px darkblue; width: 20%; color: darkblue;">0<%= id %>/06/2020</h5>
     <form action="/reponse" method="post">
         <div>
-            <input type="radio" id="oui" name="choix" value="oui">
             <label for="oui">oui</label>
+            <input type="radio" id="oui" name="choix" value="oui" required>
         </div>
 
         <div>
-            <input type="radio" id="non" name="choix" value="non">
             <label for="non">non</label>
+            <input type="radio" id="non" name="choix" value="non" required>
         </div>
 
         <div>
-            <input type="radio" id="peutetre" name="choix" value="peut-être">
             <label for="peutetre">peut-être</label>
+            <input type="radio" id="peutetre" name="choix" value="peut-être" required>
         </div>
-        <input type="submit" class="btn btn-outline-success" value="Valider mon choix" style="border-radius: 20px;">
+        <input type="submit" class="btn btn-success" value="Valider mon choix" style="border-radius: 20px;">
     </form>
 <hr width="200">
 </center>
