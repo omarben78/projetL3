@@ -65,9 +65,9 @@ app.get('/sondages/:id', function(req, res) {
     MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
         if (err) throw err;
         var dbo = db.db("projet");
-        var myobj = { id: req.params.id};
 
-        dbo.collection("rdv").find({}).toArray(function(err, result) {
+        dbo.collection("rdv").findOne({},function(err, result) {
+        	var myobj = { id: req.params.id, sondage: result};
             if (err) throw err;
             console.log(result);
             res.render("sondages.ejs", myobj);
