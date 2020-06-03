@@ -1,6 +1,8 @@
 <html>
 <head>
     <title>Page d'accueil</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- css -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- css -->
@@ -10,34 +12,85 @@
     <!-- javascript -->
 </head>
 <body style="background-color: lightgrey;">
-<a href="inscription" class="btn btn-dark" style="border-radius: 20px; float: right;"> + Inscription </a>
-<center>
-    <h2 style="text-decoration: underline; color: darkblue; text-align: center;">LP-RDV : Plannificateur de Rendez-vous</h2>
+    
+
+<!-- <a onclick="deconnexion()" class="btn btn-danger" style="float: right; border-radius: 20px; color: white;">Déconnexion</a> -->
+<h2 style="text-decoration: underline; color: darkblue; text-align: center;">LP-RDV : Plannificateur de Rendez-vous</h2>
+<!-- <h2 style="text-decoration: underline dotted; color: darkblue; text-align: center;">Bienvenue utilisateur</h2> -->
 <hr width="1100">
 <p style="color: darkblue; text-align: center;">Bienvenue sur la nouvelle interface de plannification de rendez-vous. Cet outil vous permet de planifiez des rendez-vous et de répondre à des sondages.</p>
-<p style="color: darkblue; text-align: center;">Pour commencer à utiliser l'interface, veuillez vous identifiez s'il vous plaît --></p>
+<p style="color: darkblue; text-align: center;">Affichage de tous vos rendez-vous prévu</p>
 <hr width="1100">
-    <form action="/profil" method="post">
-        <h4 style="color: darkblue; text-decoration: underline dotted;">Connexion à votre compte</h4>
-        <p></p>
-        <div class="input-group mb-3" style="width: 30%;">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Identifiant :</span>
-            </div>
-            <input type="text" id="identifiant" name="identifiant" class="form-control" required>
-        </div>
+<a href="form" class="btn btn-dark" style="border-radius: 20px; float: right;">+ Créer un nouveau sondage</a>
+<center>
+    <!-- <a href="inscription" class="btn btn-outline-primary" style="border-radius: 20px;">Créer mon compte</a> -->
+    <a href="sondages/1" class="btn btn-dark" style="border-radius: 20px; float: left;">Répondres aux sondages ></a>
+    <p></p>
+    <!-- <input type="button" value="+" id="increment" class="btn btn-outline-primary" style="border-radius: 20px; font-size: 10px;"/> -->
+    <table class="table" id="tableau" style="width: 50%;">
+        <thead class="thead-light">
+        <tr>
+            <th>Participants</th>
+            <th>01/06/2020</th>
+            <th>02/06/2020</th>
+            <th>03/06/2020</th>
+        </tr>
+        </thead>
 
-        <div class="input-group mb-3" style="width: 30%;">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Mot de passe :</span>
-            </div>
-            <input type="password" id="motdepasse" name="motdepasse" class="form-control" required>
-        </div>
+        <tr>
+            <th>Omar</th>
+            <td contenteditable="true">X</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+        </tr>
 
-        <p></p>
-        <input type="submit" class="btn btn-primary" style="border-radius: 20px;" value="Connexion" />
-        <p></p>
-    </form>
+        <tr>
+            <th>Sophiane</th>
+            <td contenteditable="true"></td>
+            <td contenteditable="true">X</td>
+            <td contenteditable="true"></td>
+        </tr>
+
+        <tr>
+            <th>Jeremy</th>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true">X</td>
+        </tr>
+
+        <tr>
+            <th>Marwen</th>
+            <td contenteditable="true"></td>
+            <td contenteditable="true">X</td>
+            <td contenteditable="true"></td>
+        </tr>
+
+        <tr>
+            <th>Alexandre</th>
+            <td contenteditable="true">X</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+        </tr>
+
+        <tr>
+            <th>Yazid</th>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true">X</td>
+        </tr>
+    </table>
+    <!-- <p id="nbrdates"></p> -->
 </center>
+
+<script>
+    /*function deconnexion() {
+  var r = confirm("êtes-vous sûr de vouloir vous déconnecter ?");
+  if (r == true) {
+    window.location = "/";
+  } else {
+    return false;
+  }
+}*/
+</script>
 </body>
 <html>

@@ -18,32 +18,6 @@ app.get('/', function(req, res) {
     res.render("index.ejs");
 });
 
-// Accès à la page profil
-app.get('/profil', function(req, res) {
-    res.render("profil.ejs");
-});
-
-// Envoie du nom de l'utilisateur
-app.post('/profil', function(req, res) {
-    //var objet = {user: {username: 'toto', mdp: 'toto95'}};
-    res.render("profil.ejs", {identifiant: req.body.identifiant});
-
-    /*MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
-        if (err) throw err;
-        var dbo = db.db("projet");
-
-        var myobj = {identifiant: req.body.identifiant};
-
-        dbo.collection("login").find({}).toArray(function(err, result) {
-            if (err) throw err;
-            console.log("Utilisateur connectee");
-            db.close();
-        });
-        res.redirect('/profil');
-    });*/
-
-});
-
 // Accès à notre formulaire
 app.get('/form', function(req, res) {
     res.render("form.ejs");
@@ -93,7 +67,7 @@ app.post('/reponse', function(req, res) {
         if (err) throw err;
         var dbo = db.db("projet");
 
-        var myobj = {choix: req.body.choix};
+        var myobj = {nom: req.body.nom, choix: req.body.choix, choix2: req.body.choix2, choix3: req.body.choix3};
 
         dbo.collection("reponse").insertOne(myobj, function(err, res) {
             if (err) throw err;
@@ -103,6 +77,11 @@ app.post('/reponse', function(req, res) {
         res.redirect('/reponse');
     });
     //res.send(req.body.nom + " " + req.body.prenom + " " + req.body.email);
+});
+
+// Accès à la page reponse
+app.get('/action', function(req, res) {
+    res.render("action.ejs");
 });
 
 // Envoie du formulaire
@@ -121,7 +100,7 @@ app.post('/action', function(req, res) {
             console.log("1 rendez-vous a ete ajoutes");
             db.close();
         });
-        res.redirect('/form');
+        res.redirect('/action');
     });
     //res.send(req.body.nom + " " + req.body.prenom + " " + req.body.email);
 });
