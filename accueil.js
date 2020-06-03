@@ -23,16 +23,6 @@ app.get('/form', function(req, res) {
     res.render("form.ejs");
 });
 
-// Accès à notre formulaire
-app.get('/inscription', function(req, res) {
-    res.render("inscription.ejs");
-});
-
-// Accès à la liste des participants
-app.get('/participants', function(req, res) {
-    res.render("participants.ejs");
-});
-
 // Accès à la liste des sondages
 app.get('/sondages/:id', function(req, res) {
     //res.render("form.ejs");
@@ -101,27 +91,6 @@ app.post('/action', function(req, res) {
             db.close();
         });
         res.redirect('/action');
-    });
-    //res.send(req.body.nom + " " + req.body.prenom + " " + req.body.email);
-});
-
-// Envoie du formulaire
-app.post('/inscrit', function(req, res) {
-    res.setHeader('Content-Type', 'text/plain');
-    //res.render("form.ejs");
-
-    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
-        if (err) throw err;
-        var dbo = db.db("projet");
-
-        var myobj = { identifiant: req.body.identifiant, email: req.body.email, mdp: req.body.mdp};
-
-        dbo.collection("login").insertOne(myobj, function(err, res) {
-            if (err) throw err;
-            console.log("1 compte a ete creer");
-            db.close();
-        });
-        res.redirect('/inscription');
     });
     //res.send(req.body.nom + " " + req.body.prenom + " " + req.body.email);
 });
